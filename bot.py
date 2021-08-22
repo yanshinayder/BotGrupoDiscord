@@ -1,12 +1,14 @@
+import datetime
+
 import discord   
-from discord.ext import commands 
+from discord.ext import commands, tasks 
 
 bot = commands.Bot("!")
 
 @bot.event
 async def on_ready():
     print(f"Estou pronto! Estou conectado como {bot.user} ")
-
+    current_time.start()    
 
 @bot.event
 async def on_message(message):
@@ -26,5 +28,16 @@ async def send_hello(ctx):
     response = "Olá, " + name
 
     await ctx.send(response)
+
+@tasks.loop(seconds=10)
+async def current_time():
+    now = datetime.datetime.now()
+
+    now = now.strftime("%d/%m/%Y ás %H:%M:%S")
+
+    channel = bot.get_channel(878749103100690507)
+
+    await channel.send("Data atual: " + now )
+
 
 bot.run("ODc4NzQ3NTc4MzI0Mzc3NjEx.YSFrdQ.EtPSE1UBVnCn5KNOpxi7e5O0AUo")
