@@ -1,6 +1,7 @@
 import datetime
 
-import discord   
+import discord
+from discord import message   
 from discord.ext import commands, tasks 
 
 
@@ -13,11 +14,12 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
+    
     if message.author == bot.user:
         return 
-
+    
     if 'palavrao' in message.content:
-        await message.channel.send(f"Por favor, {message.author.name}, não ofenda os demais usuários! ")
+        await message.channel.send (f"Por favor, {message.author.name}, não ofenda os demais usuários! ")
 
         await message.delete()
 
@@ -31,46 +33,82 @@ async def send_hello(ctx):
 
     await ctx.send(response)
 
-#ajuda para python
+
+##########Documentação############
+
+
+#aDocumentaçãopython
 @bot.command(name='python')
 async def send_link(ctx):
     name = ctx.author.name
 
     response = name  + (" Aqui está a documentação do Python https://docs.python.org/pt-br/3/")
 
-    channel = bot.get_channel(878757566874808320)
-
     await ctx.send(response)    
 
-#ajuda para php
-
+#Documentação php
 @bot.command(name='php')
 async def send_link(ctx):
     name = ctx.author.name
 
     response = name  + (" Aqui está a documentação de PHP https://www.php.net/manual/pt_BR/index.php")
 
-    channel = bot.get_channel(879141986349764648)
-
     await ctx.send(response)    
 
-#ajuda sql
+#Documentação sql
 @bot.command(name='sql')
 async def send_link(ctx):
     name = ctx.author.name
 
     response = name  + (" Aqui está a documentação de SQL https://docs.microsoft.com/pt-br/sql/?view=sql-server-ver15")
 
-    channel = bot.get_channel(879144228603703346)
+    await ctx.channel.send(response)  
 
-    await ctx.channel.send(response)    
+#Documentação git
+@bot.command(name='git')
+async def send_link(ctx):
+    name = ctx.author.name
+
+    response = name  + (" Aqui está a documentação de GIT https://git-scm.com/doc")
+
+    await ctx.channel.send(response)  
+
+#Documentação Java
+@bot.command(name='java')
+async def send_link(ctx):
+    name = ctx.author.name
+
+    response = name  + (" Aqui está a documentação de JAVA https://docs.oracle.com/en/java/")
+
+    await ctx.channel.send(response) 
+
+#Documentação Mobile
+@bot.command(name='kotlin')
+async def send_link(ctx):
+    name = ctx.author.name
+
+    response = name  + (" Aqui está a documentação de KOTLIN https://kotlinlang.org/docs/home.html")
+
+    await ctx.channel.send(response) 
+
+@bot.command(name='flutter')
+async def send_link(ctx):
+    name = ctx.author.name
+
+    response = name  + (" Aqui está a documentação de FLUTTER https://flutter.dev/docs")
+
+    await ctx.channel.send(response) 
+
+
+##########Documentação############
+
 
 @bot.command(name='contato')
 async def secret(ctx):
     try:
         await ctx.author.send("Linkedin - teste ")
         await ctx.author.send("Grupo no Telegram - exemplo")
-        await ctx.author.send("blablablablabla")
+        await ctx.author.send("Link para o Nutror - https://www.nutror.com/")
     except discord.errors.Forbidden:
         await ctx.send("Por favor Habilite a Opção para receber mensagens de qualquer pessoa do servidor (Opções -> Privacidade e Segurança)")
 
