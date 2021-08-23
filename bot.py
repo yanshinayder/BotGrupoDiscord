@@ -3,6 +3,7 @@ import datetime
 import discord   
 from discord.ext import commands, tasks 
 
+
 bot = commands.Bot("!")
 
 @bot.event
@@ -21,6 +22,7 @@ async def on_message(message):
         await message.delete()
 
     await bot.process_commands(message) 
+
 @bot.command(name='oi')
 async def send_hello(ctx):
     name = ctx.author.name
@@ -29,7 +31,50 @@ async def send_hello(ctx):
 
     await ctx.send(response)
 
-@tasks.loop(seconds=10)
+#ajuda para python
+@bot.command(name='python')
+async def send_link(ctx):
+    name = ctx.author.name
+
+    response = name  + (" Aqui está a documentação do Python https://docs.python.org/pt-br/3/")
+
+    channel = bot.get_channel(878757566874808320)
+
+    await ctx.send(response)    
+
+#ajuda para php
+
+@bot.command(name='php')
+async def send_link(ctx):
+    name = ctx.author.name
+
+    response = name  + (" Aqui está a documentação de PHP https://www.php.net/manual/pt_BR/index.php")
+
+    channel = bot.get_channel(879141986349764648)
+
+    await ctx.send(response)    
+
+#ajuda sql
+@bot.command(name='sql')
+async def send_link(ctx):
+    name = ctx.author.name
+
+    response = name  + (" Aqui está a documentação de SQL https://docs.microsoft.com/pt-br/sql/?view=sql-server-ver15")
+
+    channel = bot.get_channel(879144228603703346)
+
+    await ctx.channel.send(response)    
+
+@bot.command(name='contato')
+async def secret(ctx):
+    try:
+        await ctx.author.send("Linkedin - teste ")
+        await ctx.author.send("Grupo no Telegram - exemplo")
+        await ctx.author.send("blablablablabla")
+    except discord.errors.Forbidden:
+        await ctx.send("Por favor Habilite a Opção para receber mensagens de qualquer pessoa do servidor (Opções -> Privacidade e Segurança)")
+
+@tasks.loop(minutes=10)
 async def current_time():
     now = datetime.datetime.now()
 
