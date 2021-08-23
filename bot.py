@@ -1,4 +1,5 @@
 import datetime
+from typing_extensions import TypeAlias
 
 import discord
 from discord import message   
@@ -112,15 +113,16 @@ async def secret(ctx):
     except discord.errors.Forbidden:
         await ctx.send("Por favor Habilite a Opção para receber mensagens de qualquer pessoa do servidor (Opções -> Privacidade e Segurança)")
 
-@tasks.loop(minutes=10)
+@tasks.loop(seconds=30)
 async def current_time():
     now = datetime.datetime.now()
 
     now = now.strftime("%d/%m/%Y ás %H:%M:%S")
 
-    channel = bot.get_channel(878749103100690507)
+    channel = bot.get_channel(879393059308175370)
 
-    await channel.send("Data atual: " + now )
+    await channel.send("Atividades para o próximo encontro dia 00/00/00 - 19:00 ! \n Ler o livro Tal \n Assistir ao video 1 \n Assistir apresentação pessoal no nutror \n Todos os dias CTD")
+                        
 
 
 bot.run("ODc4NzQ3NTc4MzI0Mzc3NjEx.YSFrdQ.EtPSE1UBVnCn5KNOpxi7e5O0AUo")
