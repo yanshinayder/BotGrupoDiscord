@@ -1,18 +1,20 @@
 import datetime
-from typing_extensions import TypeAlias
 
 import discord
-from discord import message   
+from discord import message, channel, client
 from discord.ext import commands, tasks 
+import pandas as pd 
 
 
 bot = commands.Bot("!")
 
+# Apenas pra saber se o bot está rodando
 @bot.event
 async def on_ready():
     print(f"Estou pronto! Estou conectado como {bot.user} ")
     current_time.start()    
 
+# checagem de palavras proibidas
 @bot.event
 async def on_message(message):
     
@@ -26,6 +28,18 @@ async def on_message(message):
 
     await bot.process_commands(message) 
 
+
+async def on_message(message):
+    if message.author == client.user:
+        return
+    elif message.content.startswith('_'):
+
+        cmd = message.content.split()[0].replace("_","")
+        if len(message.content.split()) > 1:
+            parameters = message.content.split()[1:]
+
+
+        
 @bot.command(name='oi')
 async def send_hello(ctx):
     name = ctx.author.name
@@ -101,6 +115,14 @@ async def send_link(ctx):
     await ctx.channel.send(response) 
 
 
+@bot.command(name='node')
+async def send_link(ctx):
+    name = ctx.author.name
+
+    response = name  + (" Aqui está a documentação de NODE https://nodejs.org/en/docs/")
+
+    await ctx.channel.send(response) 
+
 ##########Documentação############
 
 
@@ -113,7 +135,7 @@ async def secret(ctx):
     except discord.errors.Forbidden:
         await ctx.send("Por favor Habilite a Opção para receber mensagens de qualquer pessoa do servidor (Opções -> Privacidade e Segurança)")
 
-@tasks.loop(seconds=30)
+@tasks.loop(minutes=10)
 async def current_time():
     now = datetime.datetime.now()
 
@@ -122,7 +144,15 @@ async def current_time():
     channel = bot.get_channel(879393059308175370)
 
     await channel.send("Atividades para o próximo encontro dia 00/00/00 - 19:00 ! \n Ler o livro Tal \n Assistir ao video 1 \n Assistir apresentação pessoal no nutror \n Todos os dias CTD")
-                        
 
+@tasks.loop(seconds=60)
+async def current_time():
+    now = datetime.datetime.now()
+
+    now = now.strftime("%d/%m/%Y ás %H:%M:%S")
+
+    channel = bot.get_channel(878749103100690507)
+
+    await channel.send('Hora atual ' + now)
 
 bot.run("ODc4NzQ3NTc4MzI0Mzc3NjEx.YSFrdQ.EtPSE1UBVnCn5KNOpxi7e5O0AUo")
