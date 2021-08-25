@@ -14,32 +14,20 @@ async def on_ready():
     print(f"Estou pronto! Estou conectado como {bot.user} ")
     current_time.start()    
 
-# checagem de palavras proibidas
+
 @bot.event
 async def on_message(message):
-    
     if message.author == bot.user:
-        return 
-    
+        return
+
     if 'palavrao' in message.content:
-        await message.channel.send (f"Por favor, {message.author.name}, não ofenda os demais usuários! ")
+        await message.channel.send(f"Por favor, {message.author.name}, não ofenda os demais usuários! ")
 
         await message.delete()
 
-    await bot.process_commands(message) 
+    await bot.process_commands(message)
 
 
-async def on_message(message):
-    if message.author == client.user:
-        return
-    elif message.content.startswith('_'):
-
-        cmd = message.content.split()[0].replace("_","")
-        if len(message.content.split()) > 1:
-            parameters = message.content.split()[1:]
-
-
-        
 @bot.command(name='oi')
 async def send_hello(ctx):
     name = ctx.author.name
