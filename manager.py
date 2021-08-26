@@ -2,7 +2,7 @@ from discord.ext import commands
 from discord.ext.commands.errors import CommandNotFound
 
 class Manager(commands.Cog):
-    """Manager the bot"""
+    """Manage the bot"""
     
     def __init__(self, bot):
         self.bot = bot 
@@ -23,8 +23,7 @@ class Manager(commands.Cog):
             await message.channel.send(f"Por favor, {message.author.name}, não ofenda os demais usuários! ")
 
             await message.delete()
-
-        await self.bot.process_commands(message)
+        
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):

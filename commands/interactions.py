@@ -21,7 +21,7 @@ class Talks(commands.Cog):
 
 
     @commands.command(name='contato')
-    async def secret(ctx):
+    async def secret(self, ctx):
         try:
             await ctx.author.send("Linkedin - teste ")
             await ctx.author.send("Grupo no Telegram - exemplo")
@@ -48,7 +48,6 @@ class Talks(commands.Cog):
         ''')
 
         await ctx.send(response)
-
 
 def setup(bot):
     bot.add_cog(Talks(bot )) 
