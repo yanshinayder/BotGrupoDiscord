@@ -1,6 +1,7 @@
+import os
+
 from decouple import config
 from discord.ext import commands
-import os
 
 bot = commands.Bot("!")
 

@@ -83,6 +83,33 @@ class Doc(commands.Cog):
 
         await ctx.channel.send(response) 
 
+    @commands.command(name='javascript')
+    async def send_script(self, ctx):
+        name = ctx.author.name
+
+        response = name  + (" Aqui está a documentação de JavaScript https://developer.mozilla.org/pt-BR/docs/Web/JavaScript")
+
+        await ctx.channel.send(response)
+
+
+    @commands.command(name='html')
+    async def send_html(self, ctx):
+        name = ctx.author.name
+
+        response = name  + (" Aqui está a documentação de HTML https://developer.mozilla.org/pt-BR/docs/Web/HTML")
+
+        await ctx.channel.send(response) 
+
+    @commands.command(name='css')
+    async def send_css(self, ctx):
+        name = ctx.author.name
+
+        response = name  + (" Aqui está a documentação de CSS https://developer.mozilla.org/pt-BR/docs/Web/CSS")
+
+        await ctx.channel.send(response)          
+
+
+
 
 def setup(bot):
     bot.add_cog(Doc(bot)) 
