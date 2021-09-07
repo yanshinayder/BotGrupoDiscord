@@ -109,16 +109,6 @@ class Doc(commands.Cog):
         await ctx.channel.send(response)        
 
 
-    # @commands.command(name='css')
-    async def send_css(self, ctx):
-        name = ctx.author.name
-
-        # response = name  + (" Aqui está a documentação de CSS https://developer.mozilla.org/pt-BR/docs/Web/CSS")
-
-        await ctx.channel.send(response)       
-
-
-
 
 def setup(bot):
     bot.add_cog(Doc(bot)) 
