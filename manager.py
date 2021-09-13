@@ -13,18 +13,6 @@ class Manager(commands.Cog):
         print(f"Estou pronto! Estou conectado como {self.bot.user} ")
         
 
-
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.author == self.bot.user:
-            return
-
-        if 'palavrao' in message.content:
-            await message.channel.send(f"Por favor, {message.author.name}, não ofenda os demais usuários! ")
-
-            await message.delete()
-        
-
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error,CommandNotFound):

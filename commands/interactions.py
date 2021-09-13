@@ -44,7 +44,7 @@ class Talks(commands.Cog):
         !java - Documentação Java
         !kotlin - Documentação kotlin
         !flutter - Documentação Flutter
-        !node - Documentação Node
+        !node - Documentação Node        
         ''')
 
         await ctx.send(response)
