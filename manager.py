@@ -16,7 +16,7 @@ class Manager(commands.Cog):
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error,CommandNotFound):
-            await ctx.send("Por favor, use um comando existente, para saber todos os comandos digite !comando ")
+            await ctx.send("Use um comando existente, para saber todos os comandos digite !comando ")
 
         else:
             raise error    
