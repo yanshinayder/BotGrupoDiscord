@@ -46,7 +46,7 @@ class Talks(commands.Cog):
         !node - Documentação Node     
         !Delphi - Documentação Delphi
         !Golang - Documentação Golang  
-        !Javascript - Documentação Javascript 
+        !Javascript - Documentação Swift 
         ''')
 
         await ctx.send(response)
