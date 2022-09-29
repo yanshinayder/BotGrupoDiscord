@@ -11,13 +11,13 @@ class Reactions(commands.Cog):
     async def on_reaction_add(self, reaction, user):
         print(reaction.emoji)
         if reaction.emoji == "📒":
-            role = user.guild.get_role(880503580258357288)
+            role = user.guild.get_role()
             await user.add_roles(role)
         elif reaction.emoji == "📕":
-            role = user.guild.get_role(880503732348002315)   
+            role = user.guild.get_role()   
             await user.add_roles(role)
         elif reaction.emoji == "📗":
-            role = user.guild.get_role(880503816552865823)
+            role = user.guild.get_role()
             await user.add_roles(role)
 
 

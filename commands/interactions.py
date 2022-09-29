@@ -20,15 +20,14 @@ class Talks(commands.Cog):
 
 
 
-    @commands.command(name='contato')
+    '''@commands.command(name='contato')
     async def secret(self, ctx):
         try:
             await ctx.author.send("Linkedin - teste ")
             await ctx.author.send("Grupo no Telegram - exemplo")
             await ctx.author.send("Link para o Nutror - https://www.nutror.com/")
         except discord.errors.Forbidden:
-            await ctx.send("Por favor Habilite a Opção para receber mensagens de qualquer pessoa do servidor (Opções -> Privacidade e Segurança)")
-
+            await ctx.send("Por favor Habilite a Opção para receber mensagens de qualquer pessoa do servidor (Opções -> Privacidade e Segurança)")'''
 
     @commands.command(name='comando')
     async def send_commands(self, ctx):
