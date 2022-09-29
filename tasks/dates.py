@@ -19,9 +19,9 @@ class Dates(commands.Cog):
 
         now = now.strftime("%d/%m/%Y ás %H:%M:%S")
 
-        channel = self.bot.get_channel(880540528654041118)
+        channel = self.bot.get_channel()
 
-        await channel.send("Atividades para o próximo encontro dia 00/00/00 - 19:00 ! \n Ler o livro Tal \n Assistir ao video 1 \n Assistir apresentação pessoal no nutror \n Todos os dias CTD")
+        await channel.send("Atividades para o próximo encontro dia 00/00/00 - 19:00 ! \n Ler o livro Tal \n Todos os dias CTD")
 
 
 

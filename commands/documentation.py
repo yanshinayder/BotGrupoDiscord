@@ -106,7 +106,31 @@ class Doc(commands.Cog):
 
         response = name  + (" Aqui está a documentação de CSS https://developer.mozilla.org/pt-BR/docs/Web/CSS")
 
-        await ctx.channel.send(response)        
+        await ctx.channel.send(response)     
+
+    @commands.command(name='Delphi')
+    async def send_delphi(self, ctx):
+        name = ctx.author.name
+
+        response = name  + (" Aqui está a documentação de Delphi https://docwiki.embarcadero.com/")
+
+        await ctx.channel.send(response)     
+
+    @commands.command(name='Golang')
+    async def send_go(self, ctx):
+        name = ctx.author.name
+
+        response = name  + (" Aqui está a documentação de Golang https://go.dev/doc//")
+
+        await ctx.channel.send(response)       
+
+    @commands.command(name='Swift')      
+    async def send_swift(self, ctx):
+        name = ctx.author.name
+
+        response = name + ("Aqui está a documentação de Swift https://www.apple.com/br/swift/")  
+
+        await ctx.channel.send(response)
 
 
 
